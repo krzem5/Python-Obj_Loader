@@ -1,2 +1,5 @@
 ### Github File Push Ignore
 
+*.mdl
+*.obj
+*.mtl
