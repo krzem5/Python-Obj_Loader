@@ -79,5 +79,5 @@ for fp in os.listdir("."):
 			f.write(struct.pack("<B",len(list(ll.keys()))))
 			for k,v in ll.items():
 				f.write(struct.pack(f"<B{len(k[:255])}sBII{len(v['dtl'])+10}f{len(v['il'])}H",len(k[:255]),bytes(k[:255],"utf-8"),len(list(v["g"].keys())),len(v["dtl"])//8,len(v["il"]),*v["mtl"]["ac"],*v["mtl"]["dc"],*v["mtl"]["sc"],v["mtl"]["se"],*v["dtl"],*v["il"]))
-				for k,e in v["g"].items():
-					f.write(struct.pack(f"<B{len(k[:255])}sfB6fI{len(e)}H{len(e)}f",len(k[:255]),bytes(k[:255],"utf-8"),1,0,0,0,0,0,0,0,len(e),*e,*[1/v["rc"][se] for se in e]))
+				for sk,sv in v["g"].items():
+					f.write(struct.pack(f"<B{len(sk[:255])}sfB6fI{len(sv)}H{len(sv)}f",len(sk[:255]),bytes(sk[:255],"utf-8"),1,0,0,0,0,0,0,0,len(sv),*sv,*[1/v["rc"][e] for e in sv]))
